@@ -3,9 +3,9 @@
 A lightweight web app for restaurant operators to:
 
 - Build an ingredient price library.
-- Create recipe line items that automatically reference ingredient prices.
-- Generate a cost breakdown by size (small/medium/large).
-- Estimate menu prices from a target food cost percentage.
+- Build recipe drafts with **size-specific quantities** (small/medium/large).
+- Save a draft as a full recipe after adding all ingredients.
+- Generate food cost + suggested menu price by size.
 
 ## Run locally
 
@@ -14,8 +14,9 @@ Open `index.html` in your browser.
 ## How it works
 
 1. Add ingredients with unit price (e.g., $/lb, $/oz, $/each).
-2. Build your recipe by selecting ingredients and quantities.
-3. The recipe generator pulls current ingredient prices from your library.
-4. Set size multipliers and target food cost % to get suggested menu prices.
+2. In Recipe Generator, add one or more ingredients to the recipe draft and set quantity per size.
+3. Remove draft rows anytime, then click **Create Full Recipe** when ready.
+4. The cost table references ingredient library prices automatically.
+5. Set your target food cost % to get suggested menu pricing by size.
 
 Data is persisted in browser `localStorage`.

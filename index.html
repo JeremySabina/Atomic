@@ -10,10 +10,7 @@
     <main class="app">
       <header>
         <h1>Restaurant Food Cost Estimator</h1>
-        <p>
-          Track ingredient prices once, then reuse them in recipes and size-based
-          menu cost breakdowns.
-        </p>
+        <p>Track ingredient prices, build a recipe draft, then save full recipes with size-based costs.</p>
       </header>
 
       <section class="card">
@@ -51,34 +48,33 @@
             <select id="recipe-ingredient" required></select>
           </label>
           <label>
-            Quantity Used
-            <input id="recipe-qty" type="number" step="0.01" min="0" required />
+            Small Qty
+            <input id="recipe-qty-small" type="number" step="0.01" min="0" required />
           </label>
-          <button type="submit">Add Ingredient to Recipe</button>
+          <label>
+            Medium Qty
+            <input id="recipe-qty-medium" type="number" step="0.01" min="0" required />
+          </label>
+          <label>
+            Large Qty
+            <input id="recipe-qty-large" type="number" step="0.01" min="0" required />
+          </label>
+          <button type="submit">Add Ingredient to Draft</button>
         </form>
 
+        <div class="row-actions">
+          <button id="save-recipe-btn" type="button">Create Full Recipe</button>
+          <button id="clear-draft-btn" type="button" class="btn-secondary">Clear Draft</button>
+        </div>
+
         <div id="recipe-table-wrap"></div>
+        <div id="saved-recipes-wrap"></div>
       </section>
 
       <section class="card">
         <h2>Cost Breakdown by Size</h2>
-        <p>
-          Set your size multipliers and target food cost percentage to estimate
-          suggested menu prices.
-        </p>
+        <p>Uses your draft recipe quantities per size and target food cost percentage.</p>
         <form id="size-config-form" class="grid-form three-col">
-          <label>
-            Small Multiplier
-            <input id="small-multiplier" type="number" step="0.01" min="0" value="0.8" />
-          </label>
-          <label>
-            Medium Multiplier
-            <input id="medium-multiplier" type="number" step="0.01" min="0" value="1" />
-          </label>
-          <label>
-            Large Multiplier
-            <input id="large-multiplier" type="number" step="0.01" min="0" value="1.25" />
-          </label>
           <label>
             Target Food Cost %
             <input id="food-cost-percent" type="number" step="0.1" min="0.1" value="30" />
