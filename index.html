@@ -1,89 +1,341 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Food Cost Estimator</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="app">
-      <header>
-        <h1>Restaurant Food Cost Estimator</h1>
-        <p>Track ingredient prices, build a recipe draft, then save full recipes with size-based costs.</p>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <section class="card">
-        <h2>Ingredient Price Library</h2>
-        <form id="ingredient-form" class="grid-form">
-          <label>
-            Ingredient Name
-            <input id="ingredient-name" required placeholder="e.g. Chicken breast" />
-          </label>
-          <label>
-            Unit
-            <input id="ingredient-unit" required placeholder="e.g. lb, oz, g, each" />
-          </label>
-          <label>
-            Price per Unit ($)
-            <input id="ingredient-price" type="number" step="0.01" min="0" required />
-          </label>
-          <button type="submit">Add / Update Ingredient</button>
-        </form>
-        <div id="ingredient-table-wrap"></div>
-      </section>
+  <title>The Atomic | Seaford, DE</title>
+  <meta name="description" content="The Atomic in Seaford, Delaware. Atomic Pub Fare & Bunker Bites at 306 High Street." />
 
-      <section class="card">
-        <h2>Recipe Generator</h2>
-        <div class="recipe-controls">
-          <label>
-            Recipe Name
-            <input id="recipe-name" placeholder="e.g. Chicken Alfredo" />
-          </label>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">THE ATOMIC</div>
+      <button class="nav-toggle" id="navToggle">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#menu">Menu</a>
+        <a href="#hours">Hours</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Seaford, Delaware</p>
+        <h1>The Atomic</h1>
+        <h2>Restuauraunt and Bar</h2>
+        <p class="hero-text">
+          Good eats, smoked meats, and a neighborhood spot built for the community.
+        </p>
+<div class="hero-actions">
+  <a class="btn primary" href="#menu">View Menu</a>
+  <a class="btn secondary" href="assets/the-atomic-menu.pdf" download>Download PDF Menu</a>
+  <a class="btn secondary" href="#location">Find Us</a>
+</div>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <h2>Welcome to The Atomic</h2>
+      <p>
+        Located at 306 High Street, The Atomic serves smoked pub fare, bunker bites, sandwiches, sides, and rotating specials.
+      </p>
+    </section>
+
+<section class="section menu-section" id="menu">
+  <div class="section-heading">
+    <p class="eyebrow">Food Menu</p>
+    <h2>THE ATOMIC</h2>
+    <p>306 High Street | Thursday - Saturday 5-11 | Sunday 12-8</p>
+
+    <div class="menu-actions">
+      <a class="btn primary" href="assets/the-atomic-menu.pdf" download>
+        Download PDF Menu
+      </a>
+    </div>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card">
+      <h3>Bar Bites</h3>
+
+      <div class="menu-item">
+        <div>
+          <h4>Smoked Deviled Eggs</h4>
+          <p>Smoked egg whites, chives, bacon, smoky seasoning.</p>
         </div>
+        <span>$6</span>
+      </div>
 
-        <form id="recipe-item-form" class="grid-form">
-          <label>
-            Ingredient
-            <select id="recipe-ingredient" required></select>
-          </label>
-          <label>
-            Small Qty
-            <input id="recipe-qty-small" type="number" step="0.01" min="0" required />
-          </label>
-          <label>
-            Medium Qty
-            <input id="recipe-qty-medium" type="number" step="0.01" min="0" required />
-          </label>
-          <label>
-            Large Qty
-            <input id="recipe-qty-large" type="number" step="0.01" min="0" required />
-          </label>
-          <button type="submit">Add Ingredient to Draft</button>
-        </form>
-
-        <div class="row-actions">
-          <button id="save-recipe-btn" type="button">Create Full Recipe</button>
-          <button id="clear-draft-btn" type="button" class="btn-secondary">Clear Draft</button>
+      <div class="menu-item">
+        <div>
+          <h4>Atomic Nachos</h4>
+          <p>Corn tortilla chips, melted cheese, chorizo queso, lettuce, pico, lime crema, pickled jalapeños.</p>
+          <p class="upgrade-line">Smoked Chicken $4 | Pulled Pork $4 | Brisket $6</p>
         </div>
+        <span>$10</span>
+      </div>
 
-        <div id="recipe-table-wrap"></div>
-        <div id="saved-recipes-wrap"></div>
-      </section>
+      <div class="menu-item">
+        <div>
+          <h4>Brisket Quesadilla</h4>
+          <p>Smoked brisket, chorizo queso, melted cheese, pickled jalapeños, griddled tortilla. Served with pico and lime crema.</p>
+        </div>
+        <span>$14</span>
+      </div>
 
-      <section class="card">
-        <h2>Cost Breakdown by Size</h2>
-        <p>Uses your draft recipe quantities per size and target food cost percentage.</p>
-        <form id="size-config-form" class="grid-form three-col">
-          <label>
-            Target Food Cost %
-            <input id="food-cost-percent" type="number" step="0.1" min="0.1" value="30" />
-          </label>
-        </form>
-        <div id="size-breakdown-wrap"></div>
-      </section>
-    </main>
+      <div class="menu-item">
+        <div>
+          <h4>Lamb Rack Ribs</h4>
+          <p>Tender lamb rack ribs, shallot red wine reduction, pickled red onions.</p>
+        </div>
+        <span>$16</span>
+      </div>
 
-    <script src="script.js"></script>
-  </body>
+      <div class="menu-item">
+        <div>
+          <h4>Experimental Pickle Sampler</h4>
+          <p>4 rotating house-pickled items.</p>
+        </div>
+        <span>$8</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <h3>Sides</h3>
+
+      <div class="menu-item">
+        <div>
+          <h4>House Salad</h4>
+          <p>Spring mix, grape tomatoes, shaved carrot, cucumber, house balsamic, roasted mushrooms.</p>
+        </div>
+        <span>$5</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Caesar Salad</h4>
+          <p>Romaine lettuce, Caesar dressing, shaved parmesan, garlic croutons.</p>
+        </div>
+        <span>$5</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>House Veg</h4>
+          <p>Sautéed in butter.</p>
+        </div>
+        <span>$5</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Mash</h4>
+          <p>Creamy mashed potatoes, butter, cracked pepper.</p>
+        </div>
+        <span>$6</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Sweet Potato Mash</h4>
+          <p>Smooth sweet mash purée.</p>
+        </div>
+        <span>$6</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Chorizo Queso Mac</h4>
+          <p>House-made béchamel cheese sauce with chorizo, cavatappi pasta.</p>
+        </div>
+        <span>$7</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <h3>Kids Meals</h3>
+
+      <div class="simple-list">
+        <p><strong>Butter Noodles</strong> <span>$4</span></p>
+        <p><strong>Mac and Cheese</strong> <span>$5</span></p>
+        <p><strong>House Uncrustable</strong> <span>$4</span></p>
+        <p><strong>Cheese Quesadilla</strong> <span>$5</span></p>
+        <p><strong>Jr. Burger</strong> <span>$5</span></p>
+        <p><strong>Cheese</strong> <span>+$1</span></p>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <h3>Mains</h3>
+      <p class="menu-note">All mains include a side.</p>
+
+      <div class="menu-item">
+        <div>
+          <h4>Caesar Salad</h4>
+          <p>Romaine lettuce, Caesar dressing, shaved parmesan.</p>
+        </div>
+        <span>$13</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>House Salad</h4>
+          <p>Spring mix, grape tomatoes, shaved carrot, cucumber, house balsamic, roasted mushrooms.</p>
+        </div>
+        <span>$13</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Pulled Pork Sandwich</h4>
+          <p>Pulled pork, house BBQ, slaw, toasted potato bun.</p>
+        </div>
+        <span>$15</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Brisket Melt Sandwich</h4>
+          <p>Smoked brisket, melted cheese, slaw, toasted potato bun.</p>
+        </div>
+        <span>$17</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>The Atomic Burger</h4>
+          <p>Double smash patties, lettuce, tomato, caramelized onion, cheddar, Atomic 1000 Island, garlic dill house pickles, toasted potato bun.</p>
+        </div>
+        <span>$15</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Brisket Hot Dog</h4>
+          <p>All brisket hot dog, corn elote mayo, pickled jalapeño, parmesan cheese, toasted bratwurst roll.</p>
+        </div>
+        <span>$16</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Chicken Cheesesteak</h4>
+          <p>Smoked pulled chicken, caramelized onions, cheese of your choice, sriracha mayo, toasted Vienna roll.</p>
+        </div>
+        <span>$15</span>
+      </div>
+    </div>
+
+    <div class="menu-card highlight">
+      <h3>Go Nuclear</h3>
+      <div class="menu-item no-border">
+        <div>
+          <h4>Add chorizo queso & pickled jalapeños</h4>
+          <p>Add to any handheld.</p>
+        </div>
+        <span>+$2</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <h3>Build Your Own Smash Burger</h3>
+
+      <div class="menu-item no-border">
+        <div>
+          <h4>Start Here</h4>
+          <p>Double smash patties, potato bun.</p>
+        </div>
+        <span>$14</span>
+      </div>
+
+      <p class="menu-note">
+        Add-ons: Lettuce | Tomato | Onion | Cheese +$1 | Caramelized onions +$1 | Sautéed mushrooms +$1 | Bacon +$2 | Extra patty +$3
+      </p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Sweets</h3>
+
+      <div class="menu-item">
+        <div>
+          <h4>Crème Brûlée</h4>
+          <p>Vanilla bean custard, burnt sugar top.</p>
+        </div>
+        <span>$8</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Peach Cobbler</h4>
+          <p>Warm peach filling, cinnamon oat crumble, honey drizzle.</p>
+        </div>
+        <span>$8</span>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <h4>Bread Pudding</h4>
+          <p>Shredded brioche, vanilla bean custard, bourbon caramel sauce.</p>
+        </div>
+        <span>$8</span>
+      </div>
+    </div>
+
+    <div class="menu-card sauces-card">
+      <h3>House Sauces</h3>
+      <p>Atomic 1000 Island | Ranch | Balsamic Vinaigrette | Mustard | Ketchup | House BBQ</p>
+    </div>
+  </div>
+
+  <p class="menu-disclaimer">
+    Please inform your server of any allergies. Prices and availability subject to change.
+    Consuming raw or undercooked meats may increase your risk of foodborne illness.
+  </p>
+</section>
+
+    <section class="section info-grid" id="hours">
+      <div class="info-card">
+        <h2>Hours</h2>
+        <p><strong>Thursday:</strong> 5 PM – 11 PM</p>
+        <p><strong>Friday:</strong> 5 PM – 11 PM</p>
+        <p><strong>Saturday:</strong> 5 PM – 11 PM</p>
+        <p><strong>Sunday:</strong> 12 PM – 8 PM</p>
+      </div>
+
+      <div class="info-card" id="location">
+        <h2>Location</h2>
+        <p>306 High Street</p>
+        <p>Seaford, Delaware</p>
+        <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=306+High+Street+Seaford+DE" target="_blank" rel="noopener">
+          Get Directions
+        </a>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <p class="eyebrow">Follow Along</p>
+      <h2>Stay connected with The Atomic</h2>
+      <p>
+        Follow us for menu updates, specials, events, and opening-hour changes.
+      </p>
+
+      <div class="social-links">
+        <a href="#" target="_blank" rel="noopener">Facebook</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 The Atomic. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
